@@ -11,7 +11,7 @@ class UsuariosSchema extends Schema {
       table.string('password')
       table.string('correo')
       table.string('status')
-      table.timestamps()
+      
     })
   }
 
