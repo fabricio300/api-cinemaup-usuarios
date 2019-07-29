@@ -6,7 +6,7 @@
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
 const Usuario = use('App/Models/Usuario');
-
+const stripe = require('stripe')('pk_test_AjSflyejK3J7quTKNeWfBY0v00XIuUpWtP');
 class UsuarioController {
 
      /**
@@ -94,6 +94,26 @@ class UsuarioController {
     console.log("AL SALIR", user_id.toJSON())
     return response.json(usuario);
 }
+
+
+async payx({ request, response }){
+  const token = request.body.token; 
+  console.log("apivd ",request.body.token)
+
+  try{
+    (async () => {
+    
+      const charge = await stripe.charges.create({
+        amount: request.body.monto*100,
+        currency: 'mxn',
+        description: 'pago VIP',
+        source: token,
+      });
+    })();
+  }catch(error){console.error(error);
+  }
+}
+
 
 }
 
