@@ -6,7 +6,7 @@
 /** @typedef {import('@adonisjs/framework/src/View')} View */
 
 const Usuario = use('App/Models/Usuario');
-const stripe = require('stripe')('pk_test_AjSflyejK3J7quTKNeWfBY0v00XIuUpWtP');
+const stripe = require('stripe')('sk_test_WPxp1ZDJ23xC0gywfy6S3fgZ00421Q9xmz');
 class UsuarioController {
 
      /**
